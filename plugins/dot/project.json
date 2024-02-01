@@ -1,0 +1,51 @@
+{
+  "name": "dot",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugins/dot/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugins/dot",
+        "main": "plugins/dot/src/index.ts",
+        "tsConfig": "plugins/dot/tsconfig.lib.json",
+        "assets": [
+          "plugins/dot/*.md",
+          {
+            "input": "./plugins/dot/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugins/dot/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugins/dot",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugins/dot",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "plugins/dot/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

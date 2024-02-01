@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "example": {
+      "factory": "./src/generators/example/generator",
+      "schema": "./src/generators/example/schema.json",
+      "description": "example generator"
+    }
+  }
+}

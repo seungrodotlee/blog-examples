@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "Example",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "예시 제목 입력"
+    },
+    "link": {
+      "type": "string",
+      "x-prompt": "예시가 포함된 링크 입력"
+    },
+    "project": {
+      "type": "string",
+      "x-prompt": "예시가 포함될 앱 선택",
+      "x-dropdown": "projects"
+    }
+  },
+  "required": ["name", "link", "project"]
+}
