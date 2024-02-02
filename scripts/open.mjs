@@ -1,23 +1,15 @@
 #!/usr/bin/env zx
 
-import {
-  entries,
-  find,
-  includes,
-  isNil,
-  not,
-  pipe,
-  prop,
-  throwIf,
-} from '@fxts/core';
 import 'zx/globals';
+import { entries, find, isNil, not, pipe, prop, throwIf } from '@fxts/core';
+import open from 'open';
 
 const waitForServerStart = (callback) => async (app) => {
   const log = $`npx nx run ${app}:serve`;
 
   for await (const chunk of log.stdout) {
     if (chunk.includes('Web Development Server is listening at')) {
-      callback(/http.+$/.exec(chunk)[0]);
+      callback(`${/http.+:\d+/.exec(chunk)[0]}/`);
     }
   }
 };

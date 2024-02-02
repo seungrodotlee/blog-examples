@@ -1,37 +1,18 @@
-import styled from '@emotion/styled';
-
-import NxWelcome from './nx-welcome';
-
-import { Route, Routes, Link } from 'react-router-dom';
+import { Global, ThemeProvider, css } from '@emotion/react';
 import ExampleRoutes from '../routes/routes.component';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import theme from './theme';
+import { resetCSS, defaultStyles } from '../styles/@global.styles';
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="react-app" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
+    <>
+      <Global styles={[resetCSS, defaultStyles]} />
+      <div>
+        <ThemeProvider theme={theme}>
+          <ExampleRoutes />
+        </ThemeProvider>
       </div>
-      <ExampleRoutes />
-    </StyledApp>
+    </>
   );
 }
 

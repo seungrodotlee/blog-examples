@@ -1,5 +1,3 @@
 react-app:
   - name: namespace-components
     link: https://velog.io/@seungrodotlee/posts
-  - name: slot
-    link: https://velog.io/@seungrodotlee/slot
