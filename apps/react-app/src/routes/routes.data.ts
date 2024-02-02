@@ -1,4 +1,4 @@
-import Index from '../pages';
+import Index from '../app';
 import NamespaceComponents from '../examples/namespace-components/namespace-components.page';
 
 
