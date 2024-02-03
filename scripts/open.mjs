@@ -4,6 +4,10 @@ import 'zx/globals';
 import { entries, find, isNil, not, pipe, prop, throwIf } from '@fxts/core';
 import open from 'open';
 
+const example = argv._[0];
+
+echo(`${chalk.bgGreen(chalk.bold(' DOT '))} Open example: ${example}`);
+
 const waitForServerStart = (callback) => async (app) => {
   const log = $`npx nx run ${app}:serve`;
 
@@ -13,8 +17,6 @@ const waitForServerStart = (callback) => async (app) => {
     }
   }
 };
-
-const example = argv._[0];
 
 pipe(
   fs.readFileSync('./scripts/map.yaml', 'utf-8'),
@@ -32,7 +34,7 @@ pipe(
       )
   ),
   waitForServerStart((url) => {
-    echo(`${chalk.bgGreen(' DOT ')} Open ${url}${example}`);
+    echo(`${chalk.bgGreen(chalk.bold(' DOT '))} Open ${url}${example}`);
     open(`${url}${example}`);
   })
 );

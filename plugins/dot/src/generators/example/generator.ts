@@ -10,6 +10,10 @@ import { ExampleGeneratorSchema } from './schema';
 import { ArrayLiteralExpression, Node } from 'typescript';
 import { append, filter, join, map, pipe, pick } from '@fxts/core';
 import * as YAML from "yaml";
+import { exec as _exec, spawn, spawnSync } from 'child_process';
+import { promisify } from 'util';
+
+const exec = promisify(_exec);
 
 type Names = Record<"className" | "propertyName" | "constantName" | "fileName", string>;
 
@@ -96,6 +100,25 @@ export const exampleGenerator = async (
     replaceFileContent("[name=routes] ~ ArrayLiteralExpression", routeDataAppender(options)),
     writeToFile(tree, options.routesFile)
   );
+
+  console.log("\n");
+  spawnSync("npx", [
+    "zx",
+    "./scripts/update-readme.mjs",
+    "--name",
+    `'${options.fileName}'`,
+    "--refUrl",
+    `${options.link}/${options.fileName}`,
+    "--refLabel",
+    `'${options.label}'`,
+    "--path",
+    `'apps/react-app/src/examples/${options.fileName}'`,
+  ], {
+    cwd: process.cwd(),
+    stdio: "inherit",
+    env: { ...process.env, FORCE_COLOR: "true" }
+  });
+  console.log("\n");
 
   await formatFiles(tree);
 };

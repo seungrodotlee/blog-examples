@@ -14,7 +14,21 @@
     },
     "link": {
       "type": "string",
-      "x-prompt": "예시가 포함된 링크 입력"
+      "x-prompt": {
+        "message": "예시가 포함된 게시물 플랫폼 선택",
+        "type": "list",
+        "items": [
+          {
+            "value": "https://velog.io/@seungrodotlee",
+            "label": "velog (https://velog.io/@seungrodotlee)"
+          }
+        ]
+      }
+
+    },
+    "label": {
+      "type": "string",
+      "x-prompt": "예시가 포함된 게시물 제목 입력"
     },
     "project": {
       "type": "string",

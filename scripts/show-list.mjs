@@ -14,7 +14,7 @@ import {
 } from '@fxts/core';
 import 'zx/globals';
 
-echo(`${chalk.bgGreen(' DOT ')} example list`);
+echo(`${chalk.bgGreen(chalk.bold(' DOT '))} Example list`);
 pipe(
   fs.readFileSync('./scripts/map.yaml', 'utf-8'),
   YAML.parse,
