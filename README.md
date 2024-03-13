@@ -25,3 +25,5 @@ npm run open <예시이름>
 | 예시명                    | 참조 아티클                                                                 | 경로                                                                                                     |
 | ---------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `namespace-components` | [1. 네임스페이스 컴포넌트](https://velog.io/@seungrodotlee/namespace-components) | [`apps/react-app/src/examples/namespace-components`](apps/react-app/src/examples/namespace-components) |
+| `'slot-components'`    | ['2. 슬롯 컴포넌트'](https://velog.io/@seungrodotlee/slot-components)        | ['apps/react-app/src/examples/slot-components']('apps/react-app/src/examples/slot-components')         |
+| `'fp'`                 | ['2-2. 함수형 프로그래밍 개념 도입하기'](https://velog.io/@seungrodotlee/fp)         | ['apps/react-app/src/examples/fp']('apps/react-app/src/examples/fp')                                   |

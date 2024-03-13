@@ -1,0 +1,17 @@
+# SLOT_COMPONENTS
+
+> 설명 작성
+
+## Installation
+
+```shell
+git clone https://github.com/seungrodotlee/blog-examples
+cd blog-examples
+npm i
+```
+
+# Quick Start
+
+```shell
+npm run open slot-components
+```
